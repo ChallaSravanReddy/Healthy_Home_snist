@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f0f3f6;
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px var(--shadow-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.image-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px var(--shadow-color);
+}
+
+.clickable-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.image-container:hover .clickable-image {
+    transform: scale(1.1);
+}
+
+.image-container::before {
+    content: attr(data-name);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.image-container:hover::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.image-container:active {
+    animation: pulse 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+    }
+    .clickable-image {
+        height: 200px;
+    }
+    .image-container::before {
+        font-size: 16px;
+        padding: 10px;
+    }
+}

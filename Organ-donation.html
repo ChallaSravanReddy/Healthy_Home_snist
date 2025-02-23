@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organ Donation Registration</title>
+    <link rel="stylesheet" href="organdonation.css">
+</head>
+<body>
+    <main>
+        <section class="registration-section">
+            <h1>Organ Donation Registration</h1>
+            <p>Register to become an organ donor and help save lives.</p>
+
+            <form action="process_registration.php" method="post">
+                <div class="form-group">
+                    <label for="full_name">Full Name:</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="blood_type">Blood Type:</label>
+                    <select id="blood_type" name="blood_type" required>
+                        <option value="" disabled selected>Select your blood type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="organ_choice">Organs You Wish to Donate:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="heart" name="organ_choice[]" value="Heart">
+                        <label for="heart">Heart</label>
+                        <input type="checkbox" id="liver" name="organ_choice[]" value="Liver">
+                        <label for="liver">Liver</label>
+                        <input type="checkbox" id="kidneys" name="organ_choice[]" value="Kidneys">
+                        <label for="kidneys">Kidneys</label>
+                        <input type="checkbox" id="lungs" name="organ_choice[]" value="Lungs">
+                        <label for="lungs">Lungs</label>
+                        <input type="checkbox" id="pancreas" name="organ_choice[]" value="Pancreas">
+                        <label for="pancreas">Pancreas</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Register" class="btn-submit">
+                </div>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

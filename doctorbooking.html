@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="doctorbooking.css">
+    <title>Find Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: 300px;
+        }
+        .doctor {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find a Doctor</h1>
+    <input type="text" id="searchInput" placeholder="Search by name..." onkeyup="filterDoctors()">
+    <input type="number" id="ratingInput" placeholder="Minimum Rating (1-5)" min="1" max="5" onkeyup="filterDoctors()">
+
+    <div id="doctorList">
+        <div class="doctor" data-rating="5">
+            <h2>Dr. John Smith</h2>
+            <p>Rating: 5</p>
+            <p>Reviews: 150</p>
+        </div>
+        <div class="doctor" data-rating="4">
+            <h2>Dr. Jane Doe</h2>
+            <p>Rating: 4</p>
+            <p>Reviews: 80</p>
+        </div>
+        <div class="doctor" data-rating="3">
+            <h2>Dr. Emily Johnson</h2>
+            <p>Rating: 3</p>
+            <p>Reviews: 60</p>
+        </div>
+        <div class="doctor" data-rating="5">
+            <h2>Dr. Michael Brown</h2>
+            <p>Rating: 5</p>
+            <p>Reviews: 200</p>
+        </div>
+    </div>
+
+    <script>
+        function filterDoctors() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const ratingInput = document.getElementById('ratingInput').value;
+            const doctors = document.querySelectorAll('.doctor');
+
+            doctors.forEach(doctor => {
+                const name = doctor.querySelector('h2').textContent.toLowerCase();
+                const rating = doctor.getAttribute('data-rating');
+
+                if (
+                    (name.includes(searchInput) || searchInput === '') &&
+                    (rating >= ratingInput || ratingInput === '')
+                ) {
+                    doctor.style.display = '';
+                } else {
+                    doctor.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

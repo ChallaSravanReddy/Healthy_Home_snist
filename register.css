@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleIn 0.3s ease-out 0.1s forwards;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.option {
+    display: block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background-color: #45a049;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { 
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}

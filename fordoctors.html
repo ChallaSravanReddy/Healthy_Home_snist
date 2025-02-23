@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Image Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .image-container {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .clickable-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover .clickable-image {
+            transform: scale(1.1);
+        }
+
+        .image-container::after {
+            content: attr(data-name);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .image-container:active {
+            animation: pulse 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                gap: 10px;
+            }
+            .image-container {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery">
+        <a href="https://colab.research.google.com/drive/1RzXgK3VrFXe7883fyOEo4wQZaZCdwLQ_#scrollTo=pguteexcOwbH"
+        target="_blank" class="image-container" data-name="Alzheimer Detection">
+           <img src="IMG-20240929-WA0119.jpg" alt="Google" class="clickable-image">
+        </a>
+        <a href="https://colab.research.google.com/github/edaaydinea/AI-Projects-for-Healthcare/blob/master/Breast%20Cancer%20Detection/Breast_Cancer_Detection.ipynb
+
+        " target="_blank" class="image-container" data-name="DNA CLASSIFICATION
+        ">
+            <img src="IMG-20240929-WA0117.jpg" alt="Amazon" class="clickable-image">
+        </a>
+        <a href="https://colab.research.google.com/github/edaaydinea/AI-Projects-for-Healthcare/blob/master/Breast%20Cancer%20Detection/Breast_Cancer_Detection.ipynb
+        " target="_blank" class="image-container" data-name="Breast Cancer Detection
+        ">
+            <img src="IMG-20240929-WA0118.jpg" alt="Facebook" class="clickable-image">
+        </a>
+        <a href="https://colab.research.google.com/github/edaaydinea/AI-Projects-for-Healthcare/blob/master/Breast%20Cancer%20Classification/%20Breast_Cancer_Classification.ipynb
+        " target="_blank" class="image-container" data-name="BREAST CANCER CLASSIFICATION
+        ">
+            <img src="IMG-20240929-WA0116.jpg" alt="Twitter" class="clickable-image">
+        </a>
+        <a href="https://colab.research.google.com/github/edaaydinea/AI-Projects-for-Healthcare/blob/master/Heart%20Disease%20Classification%20Project/Heart%20Disease%20Classification.ipynb " target="_blank" class="image-container" data-name="Heart Disease Classification
+        ">
+            <img src="IMG-20240929-WA0115.jpg" alt="Instagram" class="clickable-image">
+        </a>
+        
+        </a>
+    </div>
+</body>
+</html>
